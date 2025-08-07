@@ -1,8 +1,8 @@
 import { useState } from 'react';
 
-type CabType = 'all' | 'hatchback' | 'sedan' | 'suv' | 'bike' | 'taxi';
+export type CabType = 'all' | 'hatchback' | 'sedan' | 'suv' | 'bike' | 'taxi';
 
-interface Cab {
+export interface Cab {
   id: string;
   type: CabType;
   partnerName: string;

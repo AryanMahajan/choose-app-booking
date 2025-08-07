@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import CabList from './CabList';
+import CabList, { type CabType } from './CabList';
 
 interface LocalFormData {
   pickupLocation: string;
@@ -10,7 +10,7 @@ interface LocalFormData {
 const MOCK_CABS = [
   {
     id: '1',
-    type: 'hatchback',
+    type: 'hatchback' as CabType,
     partnerName: 'City Rides',
     rating: 4.6,
     eta: '3 mins',
@@ -19,7 +19,7 @@ const MOCK_CABS = [
   },
   {
     id: '2',
-    type: 'sedan',
+    type: 'sedan' as CabType,
     partnerName: 'Urban Cabs',
     rating: 4.7,
     eta: '5 mins',

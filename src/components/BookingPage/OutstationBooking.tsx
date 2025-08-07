@@ -1,5 +1,6 @@
+// Import CabType from CabList
 import { useState } from 'react';
-import CabList from './CabList';
+import CabList, { type CabType } from './CabList';
 
 type TripType = 'oneWay' | 'roundTrip' | 'multiCity';
 
@@ -11,10 +12,11 @@ interface OutstationFormData {
   additionalStops?: string[];
 }
 
+// Mock data for available cabs
 const MOCK_CABS = [
   {
     id: '1',
-    type: 'sedan',
+    type: 'sedan' as CabType,
     partnerName: 'Comfort Rides',
     rating: 4.7,
     eta: '5 mins',
@@ -23,7 +25,7 @@ const MOCK_CABS = [
   },
   {
     id: '2',
-    type: 'suv',
+    type: 'suv' as CabType,
     partnerName: 'Premium Cars',
     rating: 4.9,
     eta: '8 mins',

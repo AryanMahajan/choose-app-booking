@@ -1,11 +1,12 @@
+// Import CabType from CabList
 import { useState } from 'react';
 import BookingForm, { type BookingFormData } from './BookingForm';
-import CabList from './CabList';
+import CabList, { type CabType } from './CabList';
 
 const MOCK_CABS = [
   {
     id: '1',
-    type: 'sedan',
+    type: 'sedan' as CabType,
     partnerName: 'Comfort Rides',
     rating: 4.7,
     eta: '5 mins',
@@ -14,7 +15,7 @@ const MOCK_CABS = [
   },
   {
     id: '2',
-    type: 'suv',
+    type: 'suv' as CabType,
     partnerName: 'Premium Cars',
     rating: 4.9,
     eta: '8 mins',
@@ -23,48 +24,12 @@ const MOCK_CABS = [
   },
   {
     id: '3',
-    type: 'hatchback',
+    type: 'hatchback' as CabType,
     partnerName: 'City Movers',
     rating: 4.5,
     eta: '3 mins',
     fare: 12.25,
     image: 'https://via.placeholder.com/150?text=Hatchback',
-  },
-  {
-    id: '4',
-    type: 'bike',
-    partnerName: 'Quick Delivery',
-    rating: 4.3,
-    eta: '2 mins',
-    fare: 8.50,
-    image: 'https://via.placeholder.com/150?text=Bike',
-  },
-  {
-    id: '5',
-    type: 'taxi',
-    partnerName: 'Yellow Cab Co.',
-    rating: 4.2,
-    eta: '4 mins',
-    fare: 14.00,
-    image: 'https://via.placeholder.com/150?text=Taxi',
-  },
-  {
-    id: '6',
-    type: 'sedan',
-    partnerName: 'Executive Cars',
-    rating: 4.8,
-    eta: '7 mins',
-    fare: 18.25,
-    image: 'https://via.placeholder.com/150?text=Sedan',
-  },
-  {
-    id: '7',
-    type: 'suv',
-    partnerName: 'Family Rides',
-    rating: 4.6,
-    eta: '10 mins',
-    fare: 20.50,
-    image: 'https://via.placeholder.com/150?text=SUV',
   },
 ];
 

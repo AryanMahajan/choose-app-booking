@@ -1,5 +1,6 @@
+// Import CabType from CabList
 import { useState } from 'react';
-import CabList from './CabList';
+import CabList, { type CabType } from './CabList';
 
 type AirportTripType = 'toAirport' | 'fromAirport';
 
@@ -12,7 +13,7 @@ interface AirportFormData {
 const MOCK_CABS = [
   {
     id: '1',
-    type: 'sedan',
+    type: 'sedan' as CabType,
     partnerName: 'Airport Express',
     rating: 4.8,
     eta: '5 mins',
@@ -21,7 +22,7 @@ const MOCK_CABS = [
   },
   {
     id: '2',
-    type: 'suv',
+    type: 'suv' as CabType,
     partnerName: 'Premium Airport',
     rating: 4.9,
     eta: '8 mins',
