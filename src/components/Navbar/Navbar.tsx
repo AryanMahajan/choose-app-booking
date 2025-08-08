@@ -32,7 +32,7 @@ const Navbar: React.FC<NavbarProps> = ({ appName }) => {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-md py-3 px-6">
+    // <nav className="sticky top-0 z-50 bg-white shadow-md py-3 px-6">
       <div className="container mx-auto rounded-full bg-white shadow-sm border border-gray-100 py-2 px-6">
         <div className="flex justify-between items-center">
           <div className="font-bold text-xl text-primary-dark">{appName}</div>
@@ -87,7 +87,7 @@ const Navbar: React.FC<NavbarProps> = ({ appName }) => {
           </div>
         </div>
       </div>
-    </nav>
+    // </nav>
   );
 };
 

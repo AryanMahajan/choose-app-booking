@@ -14,22 +14,95 @@ const MOCK_CABS = [
   {
     id: '1',
     type: 'sedan' as CabType,
-    partnerName: 'Airport Express',
-    rating: 4.8,
+    partnerName: 'Comfort Rides',
+    rating: 4.7,
     eta: '5 mins',
-    fare: 850,
+    fare: 1550,
     image: 'https://via.placeholder.com/150?text=Sedan',
   },
   {
     id: '2',
     type: 'suv' as CabType,
-    partnerName: 'Premium Airport',
+    partnerName: 'Premium Cars',
     rating: 4.9,
     eta: '8 mins',
-    fare: 1275,
+    fare: 2275,
     image: 'https://via.placeholder.com/150?text=SUV',
   },
+  {
+    id: '3',
+    type: 'hatchback' as CabType,
+    partnerName: 'Budget Wheels',
+    rating: 4.3,
+    eta: '3 mins',
+    fare: 950,
+    image: 'https://via.placeholder.com/150?text=Hatchback',
+  },
+  {
+    id: '4',
+    type: 'bike' as CabType,
+    partnerName: 'QuickRide',
+    rating: 4.6,
+    eta: '2 mins',
+    fare: 350,
+    image: 'https://via.placeholder.com/150?text=Bike',
+  },
+  {
+    id: '5',
+    type: 'taxi' as CabType,
+    partnerName: 'City Cabs',
+    rating: 4.4,
+    eta: '4 mins',
+    fare: 1200,
+    image: 'https://via.placeholder.com/150?text=Taxi',
+  },
+  {
+    id: '6',
+    type: 'hatchback' as CabType,
+    partnerName: 'Economy Ride',
+    rating: 4.1,
+    eta: '6 mins',
+    fare: 875,
+    image: 'https://via.placeholder.com/150?text=Hatchback',
+  },
+  {
+    id: '7',
+    type: 'sedan' as CabType,
+    partnerName: 'Lux Rides',
+    rating: 4.8,
+    eta: '7 mins',
+    fare: 1625,
+    image: 'https://via.placeholder.com/150?text=Sedan',
+  },
+  {
+    id: '8',
+    type: 'suv' as CabType,
+    partnerName: 'RideMax',
+    rating: 4.5,
+    eta: '9 mins',
+    fare: 2400,
+    image: 'https://via.placeholder.com/150?text=SUV',
+  },
+  {
+    id: '9',
+    type: 'bike' as CabType,
+    partnerName: 'Speedy Wheels',
+    rating: 4.2,
+    eta: '1 min',
+    fare: 325,
+    image: 'https://via.placeholder.com/150?text=Bike',
+  },
+  {
+    id: '10',
+    type: 'taxi' as CabType,
+    partnerName: 'Metro Cabs',
+    rating: 4.6,
+    eta: '5 mins',
+    fare: 1100,
+    image: 'https://via.placeholder.com/150?text=Taxi',
+  }
 ];
+
 
 const AirportBooking: React.FC = () => {
   const [tripType, setTripType] = useState<AirportTripType>('toAirport');
@@ -57,24 +130,24 @@ const AirportBooking: React.FC = () => {
   const validateDate = (): boolean => {
     const today = new Date();
     today.setHours(0, 0, 0, 0);
-    
+
     const pickupDate = new Date(formData.pickupDate);
-    
+
     if (pickupDate < today) {
       setDateError('Pickup date cannot be in the past');
       return false;
     }
-    
+
     return true;
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (!validateDate()) {
       return;
     }
-    
+
     setShowCabs(true);
     setAvailableCabs(MOCK_CABS);
   };
@@ -88,36 +161,34 @@ const AirportBooking: React.FC = () => {
           <div className="flex justify-center mb-8">
             <div className="bg-gray-50 p-1 rounded-full">
               <button
-                className={`px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${
-                  tripType === 'toAirport'
-                    ? 'bg-yellow-400 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-white'
-                }`}
+                className={`px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${tripType === 'toAirport'
+                  ? 'bg-yellow-400 text-white shadow-sm'
+                  : 'text-gray-600 hover:text-gray-800 hover:bg-white'
+                  }`}
                 onClick={() => setTripType('toAirport')}
               >
                 To Airport
               </button>
               <button
-                className={`px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${
-                  tripType === 'fromAirport'
-                    ? 'bg-yellow-400 text-white shadow-sm'
-                    : 'text-gray-600 hover:text-gray-800 hover:bg-white'
-                }`}
+                className={`px-6 py-3 text-sm font-medium rounded-full transition-all duration-300 ${tripType === 'fromAirport'
+                  ? 'bg-yellow-400 text-white shadow-sm'
+                  : 'text-gray-600 hover:text-gray-800 hover:bg-white'
+                  }`}
                 onClick={() => setTripType('fromAirport')}
               >
                 From Airport
               </button>
             </div>
           </div>
-          
+
           <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Book Airport Cab</h2>
-          
+
           {dateError && (
             <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-2xl shadow-sm">
               {dateError}
             </div>
           )}
-          
+
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>
               <label htmlFor="airportName" className="block text-gray-700 mb-2 font-medium">Airport Name</label>
@@ -132,7 +203,7 @@ const AirportBooking: React.FC = () => {
                 required
               />
             </div>
-            
+
             <div>
               <label htmlFor="location" className="block text-gray-700 mb-2 font-medium">
                 {tripType === 'toAirport' ? 'Pickup Location' : 'Drop Location'}
@@ -148,7 +219,7 @@ const AirportBooking: React.FC = () => {
                 required
               />
             </div>
-            
+
             <div>
               <label htmlFor="pickupDate" className="block text-gray-700 mb-2 font-medium">Pickup Date & Time</label>
               <input
@@ -161,7 +232,7 @@ const AirportBooking: React.FC = () => {
                 required
               />
             </div>
-            
+
             <button
               type="submit"
               className="w-full bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-white font-bold py-4 px-6 rounded-2xl transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
@@ -170,7 +241,7 @@ const AirportBooking: React.FC = () => {
             </button>
           </form>
         </div>
-        
+
         {/* booking details after form submission */}
         {showCabs && (
           <div className="mt-6 bg-gradient-to-r from-yellow-50 to-white p-6 rounded-3xl shadow-lg backdrop-blur-sm">
@@ -188,11 +259,13 @@ const AirportBooking: React.FC = () => {
           </div>
         )}
       </div>
-      
+
       {/* Right side - 60% width */}
       <div className="w-full lg:w-3/5">
         {showCabs ? (
-          <CabList cabs={availableCabs} />
+          <div className="h-[calc(100vh-200px)] overflow-y-auto pr-2">
+            <CabList cabs={availableCabs} />
+          </div>
         ) : (
           <div className="bg-gradient-to-br from-gray-50 to-white p-12 rounded-3xl shadow-lg h-full flex items-center justify-center backdrop-blur-sm">
             <div className="text-center text-gray-500">

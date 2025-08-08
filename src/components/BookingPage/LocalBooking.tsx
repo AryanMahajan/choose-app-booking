@@ -10,23 +10,96 @@ interface LocalFormData {
 const MOCK_CABS = [
   {
     id: '1',
-    type: 'hatchback' as CabType,
-    partnerName: 'City Rides',
-    rating: 4.6,
-    eta: '3 mins',
-    fare: 350,
-    image: 'https://via.placeholder.com/150?text=Hatchback',
+    type: 'sedan' as CabType,
+    partnerName: 'Comfort Rides',
+    rating: 4.7,
+    eta: '5 mins',
+    fare: 1550,
+    image: 'https://via.placeholder.com/150?text=Sedan',
   },
   {
     id: '2',
+    type: 'suv' as CabType,
+    partnerName: 'Premium Cars',
+    rating: 4.9,
+    eta: '8 mins',
+    fare: 2275,
+    image: 'https://via.placeholder.com/150?text=SUV',
+  },
+  {
+    id: '3',
+    type: 'hatchback' as CabType,
+    partnerName: 'Budget Wheels',
+    rating: 4.3,
+    eta: '3 mins',
+    fare: 950,
+    image: 'https://via.placeholder.com/150?text=Hatchback',
+  },
+  {
+    id: '4',
+    type: 'bike' as CabType,
+    partnerName: 'QuickRide',
+    rating: 4.6,
+    eta: '2 mins',
+    fare: 350,
+    image: 'https://via.placeholder.com/150?text=Bike',
+  },
+  {
+    id: '5',
+    type: 'taxi' as CabType,
+    partnerName: 'City Cabs',
+    rating: 4.4,
+    eta: '4 mins',
+    fare: 1200,
+    image: 'https://via.placeholder.com/150?text=Taxi',
+  },
+  {
+    id: '6',
+    type: 'hatchback' as CabType,
+    partnerName: 'Economy Ride',
+    rating: 4.1,
+    eta: '6 mins',
+    fare: 875,
+    image: 'https://via.placeholder.com/150?text=Hatchback',
+  },
+  {
+    id: '7',
     type: 'sedan' as CabType,
-    partnerName: 'Urban Cabs',
-    rating: 4.7,
-    eta: '5 mins',
-    fare: 450,
+    partnerName: 'Lux Rides',
+    rating: 4.8,
+    eta: '7 mins',
+    fare: 1625,
     image: 'https://via.placeholder.com/150?text=Sedan',
   },
+  {
+    id: '8',
+    type: 'suv' as CabType,
+    partnerName: 'RideMax',
+    rating: 4.5,
+    eta: '9 mins',
+    fare: 2400,
+    image: 'https://via.placeholder.com/150?text=SUV',
+  },
+  {
+    id: '9',
+    type: 'bike' as CabType,
+    partnerName: 'Speedy Wheels',
+    rating: 4.2,
+    eta: '1 min',
+    fare: 325,
+    image: 'https://via.placeholder.com/150?text=Bike',
+  },
+  {
+    id: '10',
+    type: 'taxi' as CabType,
+    partnerName: 'Metro Cabs',
+    rating: 4.6,
+    eta: '5 mins',
+    fare: 1100,
+    image: 'https://via.placeholder.com/150?text=Taxi',
+  }
 ];
+
 
 const LocalBooking: React.FC = () => {
   const [formData, setFormData] = useState<LocalFormData>({
@@ -153,7 +226,9 @@ const LocalBooking: React.FC = () => {
       {/* Right side - 60% width */}
       <div className="w-full lg:w-3/5">
         {showCabs ? (
-          <CabList cabs={availableCabs} />
+          <div className="h-[calc(100vh-200px)] overflow-y-auto pr-2">
+            <CabList cabs={availableCabs} />
+          </div>
         ) : (
           <div className="bg-gradient-to-br from-gray-50 to-white p-12 rounded-3xl shadow-lg h-full flex items-center justify-center backdrop-blur-sm">
             <div className="text-center text-gray-500">
