@@ -12,7 +12,7 @@ const MainBookingTabs: React.FC = () => {
     <div className="min-h-screen bg-gradient-to-br from-yellow-50 to-white py-2 px-4">
       <div className="container mx-auto">
         {/* booking tabbs */}
-        <div className="flex justify-center mb-4">
+        <div className="flex justify-center mb-2">
           <div className="bg-white rounded-full shadow-lg p-2 backdrop-blur-sm">
             <div className="flex">
               <button

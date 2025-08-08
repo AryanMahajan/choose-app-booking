@@ -21,7 +21,8 @@ const MOCK_CABS = [
     rating: 4.7,
     eta: '5 mins',
     fare: 1550,
-    image: 'https://via.placeholder.com/150?text=Sedan',
+    image: '/images/sedan.png',
+
   },
   {
     id: '2',
@@ -30,7 +31,7 @@ const MOCK_CABS = [
     rating: 4.9,
     eta: '8 mins',
     fare: 2275,
-    image: 'https://via.placeholder.com/150?text=SUV',
+    image: '/images/suv.png',
   },
   {
     id: '3',
@@ -39,7 +40,7 @@ const MOCK_CABS = [
     rating: 4.3,
     eta: '3 mins',
     fare: 950,
-    image: 'https://via.placeholder.com/150?text=Hatchback',
+    image: '/images/hatchback.png',
   },
   {
     id: '4',
@@ -48,7 +49,7 @@ const MOCK_CABS = [
     rating: 4.6,
     eta: '2 mins',
     fare: 350,
-    image: 'https://via.placeholder.com/150?text=Bike',
+    image: '/images/bike.png',
   },
   {
     id: '5',
@@ -57,7 +58,7 @@ const MOCK_CABS = [
     rating: 4.4,
     eta: '4 mins',
     fare: 1200,
-    image: 'https://via.placeholder.com/150?text=Taxi',
+    image: '/images/taxi.png',
   },
   {
     id: '6',
@@ -66,7 +67,7 @@ const MOCK_CABS = [
     rating: 4.1,
     eta: '6 mins',
     fare: 875,
-    image: 'https://via.placeholder.com/150?text=Hatchback',
+    image: '/images/hatchback.png',
   },
   {
     id: '7',
@@ -75,7 +76,7 @@ const MOCK_CABS = [
     rating: 4.8,
     eta: '7 mins',
     fare: 1625,
-    image: 'https://via.placeholder.com/150?text=Sedan',
+    image: '/images/sedan.png',
   },
   {
     id: '8',
@@ -84,7 +85,7 @@ const MOCK_CABS = [
     rating: 4.5,
     eta: '9 mins',
     fare: 2400,
-    image: 'https://via.placeholder.com/150?text=SUV',
+    image: '/images/suv.png',
   },
   {
     id: '9',
@@ -93,7 +94,7 @@ const MOCK_CABS = [
     rating: 4.2,
     eta: '1 min',
     fare: 325,
-    image: 'https://via.placeholder.com/150?text=Bike',
+    image: '/images/bike.png',
   },
   {
     id: '10',
@@ -102,7 +103,7 @@ const MOCK_CABS = [
     rating: 4.6,
     eta: '5 mins',
     fare: 1100,
-    image: 'https://via.placeholder.com/150?text=Taxi',
+    image: '/images/taxi.png',
   }
 ];
 

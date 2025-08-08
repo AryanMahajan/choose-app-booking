@@ -243,7 +243,7 @@ const AirportBooking: React.FC = () => {
         </div>
 
         {/* booking details after form submission */}
-        {showCabs && (
+        {/* {showCabs && (
           <div className="mt-6 bg-gradient-to-r from-yellow-50 to-white p-6 rounded-3xl shadow-lg backdrop-blur-sm">
             <h3 className="font-bold text-yellow-800 mb-4 text-lg">Booking Details</h3>
             <div className="text-sm text-gray-700 space-y-2">
@@ -257,7 +257,7 @@ const AirportBooking: React.FC = () => {
               <p><span className="font-semibold text-gray-800">When:</span> {new Date(formData.pickupDate).toLocaleString()}</p>
             </div>
           </div>
-        )}
+        )} */}
       </div>
 
       {/* Right side - 60% width */}
