@@ -133,21 +133,19 @@ const OutstationBooking: React.FC = () => {
   };
 
   const validateDates = (): boolean => {
-    const today = new Date();
-    today.setHours(0, 0, 0, 0);
-    
+    const now = new Date();
     const pickupDate = new Date(formData.pickupDate);
     
-    if (pickupDate < today) {
-      setDateError('Pickup date cannot be in the past');
+    if (pickupDate < now) {
+      setDateError('Pickup date and time cannot be in the past');
       return false;
     }
     
     if (tripType === 'roundTrip' && formData.returnDate) {
       const returnDate = new Date(formData.returnDate);
       
-      if (returnDate < pickupDate) {
-        setDateError('Return date must be after pickup date');
+      if (returnDate <= pickupDate) {
+        setDateError('Return date and time must be after pickup date and time');
         return false;
       }
     }
@@ -201,7 +199,7 @@ const OutstationBooking: React.FC = () => {
       <div className="w-full lg:w-2/5 max-w-md">
         <div className="bg-white p-8 rounded-3xl shadow-xl backdrop-blur-sm">
           {/* Trip Type Tabs */}
-          <div className="flex justify-center mb-8">
+          <div className="flex justify-center mb-2">
             <div className="bg-gray-50 p-1 rounded-full">
               <button
                 className={`px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 ${
@@ -236,7 +234,7 @@ const OutstationBooking: React.FC = () => {
             </div>
           </div>
           
-          <h2 className="text-2xl font-bold mb-6 text-center text-gray-800">Book Outstation Cab</h2>
+          <h2 className="text-2xl font-bold mb-2 text-center text-gray-800">Book Outstation Cab</h2>
           
           {dateError && (
             <div className="mb-6 p-4 bg-red-50 text-red-600 rounded-2xl shadow-sm">
@@ -312,14 +310,13 @@ const OutstationBooking: React.FC = () => {
             )}
             
             <div>
-              <label htmlFor="pickupDate" className="block text-gray-700 mb-2 font-medium">Pickup Date</label>
+              <label htmlFor="pickupDate" className="block text-gray-700 mb-2 font-medium">Pickup Date & Time</label>
               <input
-                type="date"
+                type="datetime-local"
                 id="pickupDate"
                 name="pickupDate"
                 value={formData.pickupDate}
                 onChange={handleChange}
-                min={new Date().toISOString().split('T')[0]}
                 className="w-full px-4 py-3 bg-gray-50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white transition-all duration-300"
                 required
               />
@@ -328,14 +325,13 @@ const OutstationBooking: React.FC = () => {
             {/* return date for round trips */}
             {tripType === 'roundTrip' && (
               <div>
-                <label htmlFor="returnDate" className="block text-gray-700 mb-2 font-medium">Return Date</label>
+                <label htmlFor="returnDate" className="block text-gray-700 mb-2 font-medium">Return Date & Time</label>
                 <input
-                  type="date"
+                  type="datetime-local"
                   id="returnDate"
                   name="returnDate"
                   value={formData.returnDate}
                   onChange={handleChange}
-                  min={formData.pickupDate || new Date().toISOString().split('T')[0]}
                   className="w-full px-4 py-3 bg-gray-50 rounded-2xl focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:bg-white transition-all duration-300"
                   required={tripType === 'roundTrip'}
                 />
@@ -388,7 +384,7 @@ const OutstationBooking: React.FC = () => {
             <div className="text-center text-gray-500">
               <div className="w-20 h-20 mx-auto mb-6 bg-gradient-to-br from-yellow-100 to-yellow-200 rounded-full flex items-center justify-center">
                 <svg className="w-10 h-10 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 002 2z" />
                 </svg>
               </div>
               <h3 className="text-xl font-bold mb-3 text-gray-700">Ready to Search</h3>
